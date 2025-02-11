@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            overflow: hidden;
+        }
+        h1 {
+            color: red;
+        }
+        #message {
+            color: darkred;
+            font-size: 20px;
+            margin: 20px;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 20px;
+            margin: 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+        }
+        #no {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine? ❤️</h1>
+    <p id="message"></p>
+    <button id="yes" class="button">Yes</button>
+    <button id="no" class="button">No</button>
+
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let message = document.getElementById("message");
+        let yesSize = 20;
+
+        yesButton.addEventListener("click", function() {
+            alert("Yay! ❤️ Can't wait for our special day!");
+        });
+
+        noButton.addEventListener("click", function() {
+            message.innerHTML += "Really? It would make me very, very sad!!! 😭<br>";
+            yesSize += 20;
+            yesButton.style.fontSize = yesSize + "px";
+            yesButton.style.padding = yesSize / 2 + "px";
+            
+            if (yesSize > 300) {
+                yesButton.style.width = "100vw";
+                yesButton.style.height = "100vh";
+                yesButton.innerHTML = "JUST SAY YES!";
+            }
+        });
+    </script>
+</body>
+</html>
