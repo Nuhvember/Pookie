@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine?</title>
+    <title>Queres sair comigo no Dia dos Namorados?</title>
     <style>
         body {
             text-align: center;
@@ -14,12 +14,7 @@
         h1 {
             color: red;
         }
-        #message {
-            color: darkred;
-            font-size: 20px;
-            margin: 20px;
-        }
-        .button {
+        .botao {
             padding: 15px 30px;
             font-size: 20px;
             margin: 20px;
@@ -27,42 +22,48 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        #yes {
+        #sim {
             background-color: red;
             color: white;
         }
-        #no {
+        #nao {
             background-color: gray;
             color: white;
+            position: absolute;
         }
     </style>
 </head>
 <body>
-    <h1>Will you be my Valentine? ❤️</h1>
-    <p id="message"></p>
-    <button id="yes" class="button">Yes</button>
-    <button id="no" class="button">No</button>
+    <h1>Queres sair comigo no Dia dos Namorados? ❤️</h1>
+    <button id="sim" class="botao">Sim!</button>
+    <button id="nao" class="botao">Não...</button>
 
     <script>
-        let yesButton = document.getElementById("yes");
-        let noButton = document.getElementById("no");
-        let message = document.getElementById("message");
-        let yesSize = 20;
-
-        yesButton.addEventListener("click", function() {
-            alert("Yay! ❤️ Can't wait for our special day!");
+        document.getElementById("sim").addEventListener("click", function() {
+            alert("Sabia que ias dizer sim! ❤️ Mal posso esperar pelo nosso dia especial!");
         });
 
-        noButton.addEventListener("click", function() {
-            message.innerHTML += "Really? It would make me very, very sad!!! 😭<br>";
-            yesSize += 20;
-            yesButton.style.fontSize = yesSize + "px";
-            yesButton.style.padding = yesSize / 2 + "px";
+        let mensagens = [
+            "Tens a certeza? 😢",
+            "Por favor reconsidera! 😭",
+            "O meu coração está a partir-se 💔",
+            "Se disseres não, os gatinhos vão chorar! 🐱🥺",
+            "Aposto que carregaste sem querer... certo? 🙃",
+            "Ok... agora já estou a ficar nervoso 😳",
+            "Não há fuga, vais ser MEU! 😈"
+        ];
+        
+        let index = 0;
+
+        document.getElementById("nao").addEventListener("mouseover", function() {
+            let x = Math.random() * window.innerWidth;
+            let y = Math.random() * window.innerHeight;
+            this.style.left = x + "px";
+            this.style.top = y + "px";
             
-            if (yesSize > 300) {
-                yesButton.style.width = "100vw";
-                yesButton.style.height = "100vh";
-                yesButton.innerHTML = "JUST SAY YES!";
+            if (index < mensagens.length) {
+                alert(mensagens[index]);
+                index++;
             }
         });
     </script>
